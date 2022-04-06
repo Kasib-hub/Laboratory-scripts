@@ -28,6 +28,12 @@ foreach ($i in $file) {
 }
 
 # zip the moved files in USB
+$7zip = "C:\Program Files\7-Zip\7z.exe"
+
+Set-Alias 7zip $7zip
+7zip a -mx=9 $zip $PQCdestination
+
+
 Add-Type -Assembly 'System.IO.Compression.Filesystem'
 [System.IO.Compression.ZipFile]::CreateFromDirectory($PQCdestination, $zip)
 
